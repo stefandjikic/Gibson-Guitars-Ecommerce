@@ -69,7 +69,7 @@
     --callout-rgb: 20, 20, 20;
     --callout-border-rgb: 108, 108, 108;
     --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
+    --card-border-rgb: 250, 250, 250;
   }
 }
 
@@ -106,6 +106,10 @@ a {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .align-items-center {

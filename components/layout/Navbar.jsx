@@ -10,6 +10,7 @@ const Navbar = () => {
       <img style={{width: '50px', marginRight: '50px'}} src={logo.src} alt="Gibson Guitars" />
         <div className='mx-1'>Electric</div>
         <div className='mx-1'>Acoustic</div>
+        <div className='mx-1'>Bass</div>
       </div>
       <button>
         <AiOutlineShopping />
