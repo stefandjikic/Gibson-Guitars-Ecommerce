@@ -100,6 +100,22 @@ a {
   text-decoration: none;
 }
 
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.mx-1 {
+  margin: 0 10px;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
