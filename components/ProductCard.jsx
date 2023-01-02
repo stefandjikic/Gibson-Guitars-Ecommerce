@@ -12,7 +12,7 @@ const ProductCard = ({category = '', product: { image, name, slug, price }}) => 
           <img src={urlFor(image && image[0])} height={400} width={250} alt={name} />
           <img src={logo.src} width="50px" />
           <p>{name}</p>
-          <p>${price}</p>
+          <p className={styles.price}>${price}</p>
         </div>
       </Link>
     </div>

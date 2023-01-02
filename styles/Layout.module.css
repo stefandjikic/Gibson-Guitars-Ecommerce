@@ -1,11 +1,11 @@
 .main {
-  max-width: 1920px;
+  max-width: 1440px;
   margin: auto;
   padding: 20px;
 }
 
 .navbar {
-  max-width: 1920px;
+  max-width: 1440px;
   margin: auto;
   padding: 20px;
   display: flex;
