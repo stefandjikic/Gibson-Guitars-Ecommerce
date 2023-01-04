@@ -1,8 +1,10 @@
-Gibson Guitars Ecommerce
+**IN PROGRESS**
+
+Gibson Guitars Ecommerce powered by Sanity CMS.
 
 ## Getting Started
 
-First, run the development server:
+Run the development server:
 
 ```bash
 npm run dev
