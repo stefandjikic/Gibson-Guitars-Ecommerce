@@ -1,0 +1,67 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.75fr;
+  gap: 16px;
+  margin: 50px 0;
+}
+
+.imageWrapper {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 0.25fr 2.57fr;
+  gap: 16px;
+}
+
+.imageWrapper .mainImage {
+  object-fit: contain;
+  width: 100%;
+}
+
+.priceBlock h1 {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding-bottom: 40px;
+  font-size: 26px;
+}
+
+.priceBlock .price {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 40px 0;
+}
+
+.priceBlock button {
+  width: 100%;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.heading {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.details {
+  max-width: 900px;
+  font-size: 18px;
+  line-height: 1.4;
+  /* margin-bottom: 100px; */
+}
+
+@media (max-width: 768px) {
+ .grid,
+ .imageWrapper {
+  grid-template-columns: 1fr;
+ }
+ .mainImage {
+  grid-row: 1;
+ }
+ .imagesBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ }
+ .imagesBlock img {
+  height: 105px;
+  object-fit: contain;
+ }
+}

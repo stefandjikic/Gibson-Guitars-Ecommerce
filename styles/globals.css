@@ -161,3 +161,9 @@ a {
     color-scheme: dark;
   }
 }
+
+@media (max-width: 550px) {
+  body {
+    padding-bottom: 90px;
+  }
+}
