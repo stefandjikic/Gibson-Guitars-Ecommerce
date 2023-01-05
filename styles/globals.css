@@ -156,6 +156,16 @@ a {
   margin-bottom: 60px;
 }
 
+.cart-btn-qnty {
+  width: 25px !important;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

@@ -1,0 +1,134 @@
+.cartWrapper{
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  /* will-change: transform; */
+  transition: all 1s ease-in-out;
+
+}
+.cartContainer{
+  height: 100vh;
+  width: 600px;
+  /* background-color: white; */
+  background-color: black;
+  border-left: 1px solid rgb(40, 40, 40);
+  float: right;
+  padding: 40px 10px;
+  position: relative;
+}
+
+.cartItems {
+  height: 70vh;
+  overflow: auto;
+}
+
+.cartHeading{
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  gap: 2px;
+  margin-left: 10px;
+  border: none;
+  background-color: transparent;
+}
+
+.cartHeading .heading{
+  margin-left: 10px;
+}
+
+.cartNumItems{
+  margin-left: 10px;
+  color: #f02d34;
+}
+
+.emptyCart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.emptyCart h2 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.continueButton {
+  padding: 8px;
+  margin-top: 20px;
+  min-width: 200px;
+  cursor: pointer;
+  background: none;
+  border: 1px solid rgb(50, 50, 50);
+}
+
+.cartItem {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px 10px 0px;
+  border: 1px solid rgb(50, 50, 50);
+}
+
+.cartItem p {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.cartItemImage {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.qntyWrapp {
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.qntyWrapp p {
+  font-size: 13px;
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.cartBottom {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 100%;
+  padding-right: 20px;
+}
+
+.buttonContainer {
+  padding: 16px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonContainer button {
+  width: 100%;
+  padding: 11px;
+}
+
+@media (max-width: 768px) {
+  .cartContainer{
+    width: 415px;
+    padding: 4px;
+  }
+  .cartHeading{
+    margin-top: 35px;
+  }
+}
