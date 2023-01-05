@@ -22,7 +22,7 @@ export default function Home({ electric, acoustic, bass }) {
       </div>
       <h3 className={styles.subHeading}>Bass Guitars</h3>
       <div className={styles.grid}>
-        {bass?.map((item) => <ProductCard key={item?._id} category='acoustic' product={item} />)}
+        {bass?.map((item) => <ProductCard key={item?._id} category='bass' product={item} />)}
       </div>
     </Layout>
   );
