@@ -47,6 +47,26 @@
   /* margin-bottom: 100px; */
 }
 
+.buyButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.btnQnty {
+  width: 50px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.imagesBlock img {
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
  .grid,
  .imageWrapper {
@@ -56,6 +76,7 @@
   grid-row: 1;
  }
  .imagesBlock {
+  grid-row: 2;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -3,6 +3,7 @@ import Layout from "../../components/layout/Layout";
 import { client, urlFor } from "../../lib/sanity";
 import styles from "../../styles/ItemPage.module.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import {BsCashStack } from 'react-icons/bs'
 import Link from "next/link";
 
 const ElectricDetailsPage = ({ electric }) => {
@@ -33,9 +34,19 @@ const ElectricDetailsPage = ({ electric }) => {
         <div className={styles.priceBlock}>
           <h1>{name}</h1>
           <p className={styles.price}>${price}</p>
-          <button>
+          <p className="mb-sm">Quantity:</p>
+          <div className="flex">
+            <button className={styles.btnQnty}>-</button>
+            <div className={styles.btnQnty}>0</div>
+            <button className={styles.btnQnty}>+</button>
+          </div>
+          <button className={styles.buyButton}>
             {" "}
-            <AiOutlineShoppingCart /> Add to cart
+            <AiOutlineShoppingCart className="mx-sm" /> Add to Cart
+          </button>
+          <button className={styles.buyButton}>
+            {" "}
+            <BsCashStack className="mx-sm" /> Buy Now
           </button>
         </div>
       </div>
