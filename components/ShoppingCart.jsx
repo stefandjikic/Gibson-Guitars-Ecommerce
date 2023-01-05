@@ -14,8 +14,14 @@ import styles from "../styles/ShoppingCart.module.css";
 
 const ShoppingCart = () => {
   const cartRef = useRef();
-  const { totalPrice, totalQuantity, cartItems, setShowCart } =
-    useStateContext();
+  const {
+    totalPrice,
+    totalQuantity,
+    cartItems,
+    setShowCart,
+    toggleCartItemQuantity,
+    removeCartItems,
+  } = useStateContext();
   return (
     <div ref={cartRef} className={styles.cartWrapper}>
       <div className={styles.cartContainer}>
@@ -58,11 +64,20 @@ const ShoppingCart = () => {
                     <p className="mb-sm">Quantity:</p>
                     <div className="flex justify-center align-items-center">
                       <div className="flex">
-                        <button className="cart-btn-qnty">-</button>
-                        <div className="cart-btn-qnty">/</div>
-                        <button className="cart-btn-qnty">+</button>
+                        <button
+                          onClick={() =>
+                            toggleCartItemQuantity(item?._id, "dec")
+                          }
+                          className="cart-btn-qnty"
+                        >
+                          -
+                        </button>
+                        <div className="cart-btn-qnty">{item?.quantity}</div>
+                        <button   onClick={() =>
+                            toggleCartItemQuantity(item?._id, "inc")
+                          } className="cart-btn-qnty">+</button>
                       </div>
-                      <button className={styles.deleteButton}>
+                      <button onClick={() => removeCartItems(item)} className={styles.deleteButton}>
                         <TiDeleteOutline size={20} />
                       </button>
                     </div>
