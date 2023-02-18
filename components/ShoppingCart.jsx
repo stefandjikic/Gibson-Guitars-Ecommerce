@@ -29,7 +29,7 @@ const ShoppingCart = () => {
           onClick={() => setShowCart(false)}
           className={styles.cartHeading}
         >
-          <AiOutlineLeft />
+          <AiOutlineLeft color="#fff" />
           <span className={styles.heading}>Your Cart</span>
           <span className={styles.cartNumItems}>({totalQuantity} items)</span>
         </button>
@@ -78,7 +78,7 @@ const ShoppingCart = () => {
                           } className="cart-btn-qnty">+</button>
                       </div>
                       <button onClick={() => removeCartItems(item)} className={styles.deleteButton}>
-                        <TiDeleteOutline size={20} />
+                        <TiDeleteOutline color="#fff" size={20} />
                       </button>
                     </div>
                   </div>

@@ -1,6 +1,6 @@
 .cartWrapper{
   width: 100vw;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   position: fixed;
   right: 0;
   top: 0;
@@ -39,6 +39,7 @@
 
 .cartHeading .heading{
   margin-left: 10px;
+  color: #fff;
 }
 
 .cartNumItems{
@@ -65,6 +66,7 @@
   min-width: 200px;
   cursor: pointer;
   background: none;
+  color: #fff;
   border: 1px solid rgb(50, 50, 50);
 }
 
