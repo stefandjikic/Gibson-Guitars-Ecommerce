@@ -13,7 +13,7 @@ const AcousticDetailsPage = ({ acoustic }) => {
     urlFor(image && image[0]) || ""
   );
 
-  const { quantity, increaseQuantity, decreaseQuantity, addItemToCart } =
+  const { quantity, increaseQuantity, decreaseQuantity, addItemToCart, setShowCart } =
     useStateContext();
 
   return (
@@ -62,7 +62,10 @@ const AcousticDetailsPage = ({ acoustic }) => {
             {" "}
             <AiOutlineShoppingCart className="mx-sm" /> Add to Cart
           </button>
-          <button className={styles.buyButton}>
+          <button onClick={() => {
+             addItemToCart(acoustic, quantity)
+             setShowCart(true);
+          }} className={styles.buyButton}>
             {" "}
             <BsCashStack className="mx-sm" /> Buy Now
           </button>

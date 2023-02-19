@@ -13,8 +13,13 @@ const BassDetailsPage = ({ bass }) => {
     urlFor(image && image[0]) || ""
   );
 
-  const { quantity, increaseQuantity, decreaseQuantity, addItemToCart } =
-    useStateContext();
+  const {
+    quantity,
+    increaseQuantity,
+    decreaseQuantity,
+    addItemToCart,
+    setShowCart,
+  } = useStateContext();
 
   return (
     <Layout>
@@ -62,7 +67,13 @@ const BassDetailsPage = ({ bass }) => {
             {" "}
             <AiOutlineShoppingCart className="mx-sm" /> Add to Cart
           </button>
-          <button className={styles.buyButton}>
+          <button
+            onClick={() => {
+              addItemToCart(bass, quantity);
+              setShowCart(true);
+            }}
+            className={styles.buyButton}
+          >
             {" "}
             <BsCashStack className="mx-sm" /> Buy Now
           </button>
