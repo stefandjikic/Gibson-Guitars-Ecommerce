@@ -110,6 +110,14 @@ a {
   display: flex;
 }
 
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
 .justify-between {
   justify-content: space-between;
 }

@@ -24,8 +24,9 @@ const AcousticDetailsPage = ({ acoustic }) => {
       <div className={styles.grid}>
         <div className={styles.imageWrapper}>
           <div className={styles.imagesBlock}>
-            {image?.map((img) => (
+            {image?.map((img, i) => (
               <img
+                key={i}
                 onClick={() => setActiveImage(urlFor(img))}
                 src={urlFor(img)}
                 width={70}

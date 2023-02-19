@@ -1,16 +1,14 @@
 import React, { useRef } from "react";
-import Link from "next/link";
 import { useStateContext } from "../context/StateContext";
 import { urlFor } from "../lib/sanity";
 import {
   AiOutlineShoppingCart,
-  AiOutlinePlus,
-  AiOutlineMinus,
   AiOutlineLeft,
 } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 import toast from "react-hot-toast";
 import styles from "../styles/ShoppingCart.module.css";
+import getStripe from "../lib/stripe";
 
 const ShoppingCart = () => {
   const cartRef = useRef();
@@ -22,6 +20,27 @@ const ShoppingCart = () => {
     toggleCartItemQuantity,
     removeCartItems,
   } = useStateContext();
+
+  const handlePayment = async () => {
+    const stripe = await getStripe();
+
+    const response = await fetch("/api/stripe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cartItems),
+    });
+
+    if (response.statusCode === 500) {
+      return;
+    } else {
+      const data = await response.json();
+      toast.loading("Redirecting to checkout...");
+      stripe.redirectToCheckout({ sessionId: data.id });
+    }
+  };
+
   return (
     <div ref={cartRef} className={styles.cartWrapper}>
       <div className={styles.cartContainer}>
@@ -73,11 +92,19 @@ const ShoppingCart = () => {
                           -
                         </button>
                         <div className="cart-btn-qnty">{item?.quantity}</div>
-                        <button   onClick={() =>
+                        <button
+                          onClick={() =>
                             toggleCartItemQuantity(item?._id, "inc")
-                          } className="cart-btn-qnty">+</button>
+                          }
+                          className="cart-btn-qnty"
+                        >
+                          +
+                        </button>
                       </div>
-                      <button onClick={() => removeCartItems(item)} className={styles.deleteButton}>
+                      <button
+                        onClick={() => removeCartItems(item)}
+                        className={styles.deleteButton}
+                      >
                         <TiDeleteOutline color="#fff" size={20} />
                       </button>
                     </div>
@@ -93,7 +120,7 @@ const ShoppingCart = () => {
               <h3>${totalPrice}</h3>
             </div>
             <div className={styles.buttonContainer}>
-              <button>Pay</button>
+              <button onClick={handlePayment}>Pay</button>
             </div>
           </div>
         )}

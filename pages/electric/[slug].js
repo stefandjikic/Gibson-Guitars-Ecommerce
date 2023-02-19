@@ -23,8 +23,9 @@ const ElectricDetailsPage = ({ electric }) => {
       <div className={styles.grid}>
         <div className={styles.imageWrapper}>
           <div className={styles.imagesBlock}>
-            {image?.map((img) => (
+            {image?.map((img, i) => (
               <img
+                key={i}
                 onClick={() => setActiveImage(urlFor(img))}
                 src={urlFor(img)}
                 width={70}
@@ -34,7 +35,7 @@ const ElectricDetailsPage = ({ electric }) => {
           </div>
           <img
             height={500}
-            lassName={styles.mainImage}
+            className={styles.mainImage}
             src={activeImage}
             alt={name}
           />
