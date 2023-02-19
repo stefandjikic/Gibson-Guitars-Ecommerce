@@ -4,13 +4,17 @@ import Layout from "../../components/layout/Layout";
 import { client, urlFor } from "../../lib/sanity";
 import styles from "../../styles/ItemPage.module.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import {BsCashStack } from 'react-icons/bs'
+import { BsCashStack } from "react-icons/bs";
+import { useStateContext } from "../../context/StateContext";
 
 const AcousticDetailsPage = ({ acoustic }) => {
-  const { image, name, details, price } = acoustic;
+  const { image, name, details, price } = { ...acoustic };
   const [activeImage, setActiveImage] = useState(
     urlFor(image && image[0]) || ""
   );
+
+  const { quantity, increaseQuantity, decreaseQuantity, addItemToCart } =
+    useStateContext();
 
   return (
     <Layout>
@@ -29,18 +33,32 @@ const AcousticDetailsPage = ({ acoustic }) => {
               />
             ))}
           </div>
-          <img height={500} className={styles.mainImage} src={activeImage} alt={name} />
+          <img
+            height={500}
+            className={styles.mainImage}
+            src={activeImage}
+            alt={name}
+          />
         </div>
         <div className={styles.priceBlock}>
           <h1>{name}</h1>
           <p className={styles.price}>${price}</p>
           <p className="mb-sm">Quantity:</p>
           <div className="flex">
-            <button className={styles.btnQnty}>-</button>
-            <div className={styles.btnQnty}>0</div>
-            <button className={styles.btnQnty}>+</button>
+            <button className={styles.btnQnty} onClick={decreaseQuantity}>
+              -
+            </button>
+            <div className={styles.btnQnty}>{quantity}</div>
+            <button className={styles.btnQnty} onClick={increaseQuantity}>
+              +
+            </button>
           </div>
-          <button className={styles.buyButton}>
+          <button
+            onClick={() => {
+              addItemToCart(acoustic, quantity);
+            }}
+            className={styles.buyButton}
+          >
             {" "}
             <AiOutlineShoppingCart className="mx-sm" /> Add to Cart
           </button>

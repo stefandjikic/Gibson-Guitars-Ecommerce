@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { useStateContext } from "../../context/StateContext";
 import Layout from "../../components/layout/Layout";
 import { client, urlFor } from "../../lib/sanity";
 import styles from "../../styles/ItemPage.module.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import {BsCashStack } from 'react-icons/bs'
+import { BsCashStack } from "react-icons/bs";
 
 const BassDetailsPage = ({ bass }) => {
   const { image, name, details, price } = { ...bass };
   const [activeImage, setActiveImage] = useState(
     urlFor(image && image[0]) || ""
   );
+
+  const { quantity, increaseQuantity, decreaseQuantity, addItemToCart } =
+    useStateContext();
 
   return (
     <Layout>
@@ -41,11 +45,20 @@ const BassDetailsPage = ({ bass }) => {
           <p className={styles.price}>${price}</p>
           <p className="mb-sm">Quantity:</p>
           <div className="flex">
-            <button className={styles.btnQnty}>-</button>
-            <div className={styles.btnQnty}>0</div>
-            <button className={styles.btnQnty}>+</button>
+            <button className={styles.btnQnty} onClick={decreaseQuantity}>
+              -
+            </button>
+            <div className={styles.btnQnty}>{quantity}</div>
+            <button className={styles.btnQnty} onClick={increaseQuantity}>
+              +
+            </button>
           </div>
-          <button className={styles.buyButton}>
+          <button
+            className={styles.buyButton}
+            onClick={() => {
+              addItemToCart(bass, quantity);
+            }}
+          >
             {" "}
             <AiOutlineShoppingCart className="mx-sm" /> Add to Cart
           </button>
