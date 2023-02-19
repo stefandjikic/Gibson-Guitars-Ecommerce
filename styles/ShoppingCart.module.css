@@ -127,7 +127,7 @@
 
 @media (max-width: 768px) {
   .cartContainer{
-    width: 415px;
+    max-width: 340px;
     padding: 4px;
   }
   .cartHeading{
